@@ -1,11 +1,5 @@
 # System for managing and distributing medical products
 
-Project contributors : Sultan Numyalai, Miroslav Čuvar <br />
-School               : FIIT<br />
-Instructor           : Miroslav Demovic<br />
-Year                 : 2017-2018<br />
-Semester             : Summer<br />
-
 ## Assignment
 In your chosen environment, create a database application that comprehensively addresses the below-defined scenarios in your chosen domain. Discuss with your instructor about the exact scale and specification of the scenarios. The project is solved in pairs, and it is expected that you will use git to synchronize your work with your classmate.
 
