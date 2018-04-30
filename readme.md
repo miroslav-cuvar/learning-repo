@@ -46,3 +46,44 @@ We programmed this application with Java programming language, using JDBC interf
 The application is supposed to be ran from the Login class, where we simulated a login scenario for the user to enter his account information (The user management part of this project was beyond our scope, so the only acceptable username and password combination is:
 > Username: 1<br/>
 > Password: 1
+
+### Database connection
+Connecting to a database is handled trough JDBC interface using the following code by which it is possible to safely and effectively establish a connection to the database.
+```
+public class postgreSQLconnection {
+	
+	static Connection conn = null;
+	static Connection connection = null;
+	
+	public static Connection postgreconnector()
+	{
+
+		try {
+			 Class.forName("org.postgresql.Driver");  // (1)
+				conn = DriverManager.getConnection(
+						"jdbc:postgresql://127.0.0.1:5432/dbname", "role","password");
+				return conn;
+		}catch(Exception e)
+		{
+			JOptionPane.showMessageDialog(null,e);
+			return null;
+		}	
+	}
+
+} 
+```
+
+### Transactions
+All the statements handling inserts, updating and deleting are implemented through transaction as to make the database connection more secure.
+
+
+### Indices
+In order to improve database search speed we added two new indices:
+
+```CREATE INDEX sklad_idx ON produkt_v_sklade(sklad_id)```<br/>
+Which sped up searching through products in a selected warehouse from ```1,2s``` on average to ```0,05ms``` on average.
+
+```CREATE INDEX dodavatel_idx ON vyrobna_zmluva (dodavatel_id)```<br/>
+Which sped up searching through products in a selected warehouse from ```0,9s``` on average to ```0,05ms``` on average.
+
+## 
